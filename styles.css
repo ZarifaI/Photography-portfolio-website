@@ -1,0 +1,122 @@
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Spectral', serif;
+    background-color: black;
+}
+    header {
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 20px;
+        height: 87px; /* Set a specific height */
+        z-index: 1000;
+    }
+
+header img {
+    cursor: pointer;
+    margin: 20px;
+    width: 15%;
+}
+
+li, a {
+    font-weight: 500;
+    font-size: 16px;
+    color: #636363;
+    text-decoration: none;
+}
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 10px;
+
+}
+
+.nav_links li a {
+    text-decoration: none;
+    position: relative;
+    padding: 0 10px;
+}
+
+.nav_links li a:after {
+    content: "";
+    position: absolute;
+    background-color: aliceblue;
+    height: 3px;
+    width: 0;
+    left: 0;
+    transition: width 0.3s ease;  /* Adjusted the transition property */
+    bottom: -10px;
+}  
+
+ .nav_links li a:hover:after {
+    width: 100%;
+}   
+
+
+/*  home page */
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+     /* Add background color if needed */
+}
+
+h1 {
+    font-size: 90px;
+    color: #333;
+    margin: 0; /* Reset margin for h1 */
+}
+
+p {
+    font-size: 26px;
+    color: #333;
+    margin: 0; 
+}
+
+.sec-3 .images img {
+    max-width: 400px;
+    margin: 0 30px;
+    transform: translateX(-100%);
+    transition: transform 0.5s; 
+}
+
+.sec-3.show-animate .images img {
+    transform: translateX(0);
+    transition-delay: calc(0.1s * var(--i));
+}
+
+section .animate {
+    transition: 1s;
+    filter: blur(5px);
+}
+
+section.show-animate .animate {
+    filter: blur(0) ;
+}
+.sec-1 .animate {
+    transform: translateX(-100%);
+}
+
+.sec-1.show-animate .animate {
+    transform: translateX(0);
+}
+
+.sec-2 .animate {
+    transform: scale(0.7);
+}
+.sec-2.show-animate .animate {
+    transform: scale(1);
+}
+
+
+
