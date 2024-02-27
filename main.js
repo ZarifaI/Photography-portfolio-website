@@ -16,10 +16,34 @@ window.onscroll = () => {
 
 }
 
-const slider = document.querySelector('.slider-container');
-const arrow = document.querySelector('.arrow');
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.slide');
+    let currentIndex = 0;
 
-arrow.addEventListener('click', () => {
-    slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' });
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.style.display = 'flex';
+            } else {
+                slide.style.display = 'none';
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    function startAutoSlide() {
+        setInterval(nextSlide, 5000); // Adjust the interval (in milliseconds) as needed
+    }
+
+    // Initially hide all slides except the first one
+    showSlide(currentIndex);
+
+    // Start auto slide
+    startAutoSlide();
 });
+
 
